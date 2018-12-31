@@ -16,6 +16,10 @@ app.use(helmet({
   frameguard: {
      action: 'deny'
   },
+  noCache: true,
+  hidePoweredBy: { 
+    setTo: 'PHP 4.2.0' 
+  },
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
@@ -24,7 +28,6 @@ app.use(helmet({
     }
    }
  }));
-
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
