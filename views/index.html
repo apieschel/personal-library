@@ -2,7 +2,7 @@
   <head>
     <title>FCC ISQA Project - Personal Library</title>
     <meta name="description" content="A cool thing made with HyperDev">
-  <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,16 +70,6 @@
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
             crossorigin="anonymous"></script>
     <script src="/public/client.js"></script>           
-    <script>
-      /*
-      *  For #sampleposting to update form action url to test inputs book id
-      */
-      $(function() {
-       $('#commentTest').submit(function(){
-         var id = $('#idinputtest').val();
-         $(this).attr('action', "/api/books/" + id);
-       });
-      });
-   </script>
+    
   </body>
 </html>

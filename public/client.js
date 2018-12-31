@@ -80,6 +80,16 @@ $( document ).ready(function() {
         //update list
       }
     });
-  }); 
+  });
   
+  /*
+  *  For #sampleposting to update form action url to test inputs book id
+  */
+  $(function() {
+   $('#commentTest').submit(function(){
+     var id = $('#idinputtest').val();
+     $(this).attr('action', "/api/books/" + id);
+   });
+  });
+
 });

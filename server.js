@@ -24,7 +24,8 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       styleSrc: ["'self'"],
-      scriptSrc: ["'self'", "https://code.jquery.com"]
+      scriptSrc: ["'self'", "https://code.jquery.com"],
+      imgSrc: ["'self'", "https://hyperdev.com", "https://glitch.com"]
     }
    }
  }));
