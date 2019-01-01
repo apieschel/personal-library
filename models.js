@@ -3,7 +3,8 @@ let Schema = mongoose.Schema;
                     
 let bookSchema = new Schema({
 	title: String,
-  commentcount: 0
+  commentcount: 0,
+  comments: []
 });
 
 let Book = mongoose.model('Book', bookSchema);

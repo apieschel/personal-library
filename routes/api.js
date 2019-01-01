@@ -17,8 +17,10 @@ module.exports = function (app) {
 
   app.route('/api/books')
     .get(function (req, res){
-      //response will be array of book objects
-      //json res format: [{"_id": bookid, "title": book_title, "commentcount": num_of_comments },...]
+      Book.find({}, function(err, books) {
+			  if(err) throw err;
+			  res.json(books);
+		  });
     })
     
     .post(function (req, res){
@@ -32,7 +34,7 @@ module.exports = function (app) {
         } else {			
             if(err) throw err;
 
-            let newBook = new Book({title: title, commentcount: 0});
+            let newBook = new Book({title: title, commentcount: 0, comments: []});
 
             newBook.save(function(err, data) {
               if(err) throw err;
