@@ -22,15 +22,27 @@ module.exports = function (app) {
     })
     
     .post(function (req, res){
-      var title = req.body.title;
-      //response will contain new book object including atleast _id and title
+      let title = req.body.title;
+      Book.findOne({title: title}, function(err, data) {
+        if(data !== null) {
+          if(err) throw err;
+          res.json("That book is already in our database!");						
+        } else {			
+            if(err) throw err;
+
+            let newBook = new Book({title: title, commentcount: 0});
+
+            newBook.save(function(err, data) {
+              if(err) throw err;
+              res.json(data);
+            });																		
+        }
+      });
     })
     
     .delete(function(req, res){
       //if successful response will be 'complete delete successful'
     });
-
-
 
   app.route('/api/books/:id')
     .get(function (req, res){
