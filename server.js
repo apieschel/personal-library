@@ -17,10 +17,10 @@ app.use(helmet({
   frameguard: {
      action: 'deny'
   },
-  noCache: true,
+  /*noCache: true,
   hidePoweredBy: { 
     setTo: 'PHP 4.2.0' 
-  },
+  },*/
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
