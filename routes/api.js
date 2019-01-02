@@ -35,7 +35,7 @@ module.exports = function (app) {
       if(req.params.id.length !== 24) {
         res.json("Please enter an ID that is exactly 24 characters.");
       } else {
-        Book.findByIdAndUpdate(req.params.id, { $addToSet: {comments: req.body.comment} }, {new: true}, function(err, book) {
+        Book.findByIdAndUpdate(req.params.id, { $addToSet: {comments: req.body.comment}, $inc: {commentcount : 1} }, {new: true}, function(err, book) {
           if(book === null || book === undefined) {
             res.json("Could not find that book in our database.");
           } else {
