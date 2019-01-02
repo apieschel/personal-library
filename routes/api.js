@@ -18,7 +18,7 @@ module.exports = function (app) {
   app.route('/api/books/:id')
     .get(function (req, res) {
       if(req.params.id.length !== 24) {
-        res.json("Please enter an ID that is 24 characters.");
+        res.json("Please enter an ID that is exactly 24 characters.");
       } else {
         Book.findById(req.params.id, function(err, book) {
           if(err) throw err;
@@ -32,7 +32,18 @@ module.exports = function (app) {
     })
   
     .post(function(req, res) {
-    
+      if(req.params.id.length !== 24) {
+        res.json("Please enter an ID that is exactly 24 characters.");
+      } else {
+        Book.findByIdAndUpdate(req.params.id, { $addToSet: {comments: req.body.comment} }, {new: true}, function(err, book) {
+          if(book === null || book === undefined) {
+            res.json("Could not find that book in our database.");
+          } else {
+            if(err) throw err;
+            res.json(book);
+          }
+        });  
+      }
     });
   
   app.route('/api/books')
