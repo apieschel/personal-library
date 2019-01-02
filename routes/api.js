@@ -14,7 +14,23 @@ const ObjectId = require('mongodb').ObjectId;
 const Book = require("../models.js").bookModel;
 
 module.exports = function (app) {
-
+  
+  app.route('/api/books/:id')
+    .get(function (req, res) {
+      if(req.params.id.length !== 24) {
+        res.json("Please enter an ID that is 24 characters.");
+      } else {
+        Book.findById(req.params.id, function(err, book) {
+          if(err) throw err;
+          if(book !== null) {
+            res.json(book);
+          } else {
+            res.json("Sorry, but we couldn't find that book in our database.");
+          }
+        });    
+      }
+  });
+  
   app.route('/api/books')
     .get(function (req, res){
       Book.find({}, function(err, books) {
