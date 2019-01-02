@@ -29,7 +29,11 @@ module.exports = function (app) {
           }
         });    
       }
-  });
+    })
+  
+    .post(function(req, res) {
+    
+    });
   
   app.route('/api/books')
     .get(function (req, res){
