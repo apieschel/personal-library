@@ -44,6 +44,22 @@ module.exports = function (app) {
           }
         });  
       }
+    })
+  
+    .delete(function(req, res) {
+      if(req.params.id.length !== 24) {
+        res.json("Please enter an ID that is exactly 24 characters.");
+      } else {
+        Book.findById(req.params.id, function(err, book) {
+          if(book === null || book === undefined) {
+            res.json("Could not find that book in our database.");
+          } else {
+            if(err) throw err;
+            book.delete();
+            res.json("Your book was successfully deleted.");
+          }
+        });  
+      }
     });
   
   app.route('/api/books')
