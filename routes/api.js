@@ -69,7 +69,7 @@ module.exports = function (app) {
 		  });
     })
     
-    .post(function (req, res){
+    .post(function (req, res) { 
       let title = req.body.title;
       //console.log(req.headers);
       console.log(res);
@@ -90,8 +90,11 @@ module.exports = function (app) {
       });
     })
     
-    .delete(function(req, res){
-      
-    });
+    .delete(function(req, res) {
+          Book.deleteMany({}, function(err) {
+            if(err) throw err;
+          });
+          res.json("Your library was successfully deleted.");
+		  });
   
 };
