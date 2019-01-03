@@ -101,9 +101,18 @@ chai.use(chaiHttp);
       
       test('Test POST /api/books/[id] with comment', function(done){
         chai.request(server)
-          .get('/api/books/5c2d74d376642931ae637695') // replace with the ID of the book you want to comment on
+          .post('/api/books/5c2d74d376642931ae637695') // replace with the ID of the book you want to comment on
+          .type('form')
+          .send({
+            comment: 'Loved this book too.'
+          })
           .end(function(err, res){
             assert.equal(res.status, 200);
+            assert.property(res.body, 'commentcount', 'Book should contain commentcount');
+            assert.property(res.body, 'title', 'Book should contain title');
+            assert.property(res.body, '_id', 'Book should contain _id');
+            assert.property(res.body, 'comments', 'Book should contain comments')
+            assert.isArray(res.body.comments, 'Book should contain an array of comments')
             done();
         });
       });
