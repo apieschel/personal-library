@@ -71,8 +71,6 @@ module.exports = function (app) {
     
     .post(function (req, res) { 
       let title = req.body.title;
-      //console.log(req.headers);
-      console.log(res);
       Book.findOne({title: title}, function(err, data) {
         if(data !== null) {
           if(err) throw err;
