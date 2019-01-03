@@ -31,7 +31,25 @@ chai.use(chaiHttp);
             done();
         });
       });
-      
+    });
+    
+    test('Test POST /api/books with no title given', function(done) {
+        chai.request(server)
+          .post('/api/books')
+          .type('form')
+          .send({
+            '_method': 'post',
+            'title': ''            
+          })
+          .end(function(err, res){
+            assert.equal(res.status, 200);
+            console.log(res.body);
+            done();
+        });
+      });
+
+
+    suite('GET /api/books => array of books', function(){      
       test('GET /api/books', function(done){
        chai.request(server)
         .get('/api/books')
@@ -42,36 +60,7 @@ chai.use(chaiHttp);
           assert.property(res.body[0], 'title', 'Books in array should contain title');
           assert.property(res.body[0], '_id', 'Books in array should contain _id');
           done();
-      });
-      
-      test('Test POST /api/books with no title given', function(done) {
-        chai.request(server)
-          .post('/api/books')
-          .type('form')
-          .send({
-            '_method': 'post',
-            'title': ''            
-          })
-          .end(function(err, res){
-            assert.equal(res.status, 200);
-            done();
-        });
-      });
-      
-    });
-
-
-    suite('GET /api/books => array of books', function(){
-      
-      test('Test GET /api/books',  function(done){
-        chai.request(server)
-          .get('/api/books')
-          .end(function(err, res){
-            assert.equal(res.status, 200);
-            done();
-        });
-      });      
-      
+      });         
     });
 
 
