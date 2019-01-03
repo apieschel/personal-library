@@ -68,10 +68,16 @@ chai.use(chaiHttp);
       
       test('Test GET /api/books/[id] with id not in db',  function(done){
         chai.request(server)
-          .get('/api/books/0001234')
+          .get('/api/books/5c2d74d376642931ae637694')
           .end(function(err, res){
             assert.equal(res.status, 200);
-            console.log(res.body);
+            expect(res.body).to.satisfy(function(message) { 
+              if(message === "Please enter an ID that is exactly 24 characters." || message === "Sorry, but we couldn't find that book in our database.") {
+                return true;
+              } else {
+                return false;
+              }
+            });
             done();
         });
       });
@@ -81,18 +87,21 @@ chai.use(chaiHttp);
           .get('/api/books/5c2d74d376642931ae637695') // replace with the ID of the book you want to find
           .end(function(err, res){
             assert.equal(res.status, 200);
+            assert.property(res.body, 'commentcount', 'Book should contain commentcount');
+            assert.property(res.body, 'title', 'Book should contain title');
+            assert.property(res.body, '_id', 'Book should contain _id');
+            assert.property(res.body, 'comments', 'Book should contain comments')
+            assert.isArray(res.body.comments, 'Book should contain an array of comments')
             done();
         });
-      });
-      
+      }); 
     });
-
 
     suite('POST /api/books/[id] => add comment/expect book object with id', function(){
       
       test('Test POST /api/books/[id] with comment', function(done){
         chai.request(server)
-          .get('/api/books')
+          .get('/api/books/5c2d74d376642931ae637695') // replace with the ID of the book you want to comment on
           .end(function(err, res){
             assert.equal(res.status, 200);
             done();
