@@ -33,21 +33,21 @@ chai.use(chaiHttp);
       });
     });
     
-    test('Test POST /api/books with no title given', function(done) {
+    suite('POST /api/books with no title', function() {
+      test('Test POST /api/books with no title given', function(done) {
         chai.request(server)
           .post('/api/books')
           .type('form')
           .send({
-            '_method': 'post',
-            'title': ''            
+            '_method': 'post'       
           })
           .end(function(err, res){
             assert.equal(res.status, 200);
-            console.log(res.body);
+            assert.equal(res.body, "Please enter a title for your book.");
             done();
         });
       });
-
+    });
 
     suite('GET /api/books => array of books', function(){      
       test('GET /api/books', function(done){
@@ -68,16 +68,17 @@ chai.use(chaiHttp);
       
       test('Test GET /api/books/[id] with id not in db',  function(done){
         chai.request(server)
-          .get('/api/books')
+          .get('/api/books/0001234')
           .end(function(err, res){
             assert.equal(res.status, 200);
+            console.log(res.body);
             done();
         });
       });
       
       test('Test GET /api/books/[id] with valid id in db',  function(done){
         chai.request(server)
-          .get('/api/books')
+          .get('/api/books/5c2d74d376642931ae637695') // replace with the ID of the book you want to find
           .end(function(err, res){
             assert.equal(res.status, 200);
             done();

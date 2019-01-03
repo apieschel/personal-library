@@ -71,21 +71,25 @@ module.exports = function (app) {
     
     .post(function (req, res) { 
       let title = req.body.title;
-      Book.findOne({title: title}, function(err, data) {
-        if(data !== null) {
-          if(err) throw err;
-          res.json("That book is already in our database!");						
-        } else {			
+      if(title === '' || title === undefined) {
+        res.json("Please enter a title for your book.");
+      } else {
+        Book.findOne({title: title}, function(err, data) {
+          if(data !== null) {
             if(err) throw err;
-
-            let newBook = new Book({title: title, commentcount: 0, comments: []});
-
-            newBook.save(function(err, data) {
+            res.json("That book is already in our database!");						
+          } else {			
               if(err) throw err;
-              res.json(data);
-            });																		
-        }
-      });
+
+              let newBook = new Book({title: title, commentcount: 0, comments: []});
+
+              newBook.save(function(err, data) {
+                if(err) throw err;
+                res.json(data);
+              });																		
+          }
+        });
+      }
     })
     
     .delete(function(req, res) {
