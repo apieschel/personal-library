@@ -50,12 +50,11 @@ module.exports = function (app) {
       if(req.params.id.length !== 24) {
         res.json("Please enter an ID that is exactly 24 characters.");
       } else {
-        Book.findById(req.params.id, function(err, book) {
+        Book.findByIdAndDelete(req.params.id, function(err, book) {
           if(book === null || book === undefined) {
             res.json("Could not find that book in our database.");
           } else {
             if(err) throw err;
-            book.delete();
             res.json("Your book was successfully deleted.");
           }
         });  
@@ -92,24 +91,7 @@ module.exports = function (app) {
     })
     
     .delete(function(req, res){
-      //if successful response will be 'complete delete successful'
-    });
-
-  app.route('/api/books/:id')
-    .get(function (req, res){
-      var bookid = req.params.id;
-      //json res format: {"_id": bookid, "title": book_title, "comments": [comment,comment,...]}
-    })
-    
-    .post(function(req, res){
-      var bookid = req.params.id;
-      var comment = req.body.comment;
-      //json res format same as .get
-    })
-    
-    .delete(function(req, res){
-      var bookid = req.params.id;
-      //if successful response will be 'delete successful'
+      
     });
   
 };

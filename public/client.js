@@ -26,7 +26,7 @@ $( document ).ready(function() {
       $.each(data.comments, function(i, val) {
         comments.push('<li>' +val+ '</li>');
       });
-      comments.push('<br><form id="newCommentForm"><input style="width:300px" type="text" class="form-control" id="commentToAdd" name="comment" placeholder="New Comment"></form>');
+      comments.push('<br><form id="newCommentForm"><input type="text" class="form-control" id="commentToAdd" name="comment" placeholder="New Comment"></form>');
       comments.push('<br><button class="btn btn-info addComment" id="'+ data._id+'">Add Comment</button>');
       comments.push('<button class="btn btn-danger deleteBook" id="'+ data._id+'">Delete Book</button>');
       $('#detailComments').html(comments.join(''));
@@ -39,7 +39,7 @@ $( document ).ready(function() {
       type: 'delete',
       success: function(data) {
         //update list
-        $('#detailComments').html('<p style="color: red;">'+data+'<p><p>Refresh the page</p>');
+        $('#detailComments').html('<p>'+data+'<p><p>Refresh the page</p>');
       }
     });
   });  
