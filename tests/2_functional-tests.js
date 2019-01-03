@@ -13,13 +13,21 @@ chai.use(chaiHttp);
       
       test('Test POST /api/books with title', function(done) {
         chai.request(server)
-          .get('/api/books')
+          .post('/api/books')
+          .type('form')
+          .send({
+            '_method': 'post',
+            'title': 'An Excellent Addition (Edition)'            
+          })
           .end(function(err, res){
             assert.equal(res.status, 200);
-            assert.property(res.body[0], 'commentcount', 'Book should contain commentcount');
-            assert.property(res.body[0], 'title', 'Book should contain title');
-            assert.property(res.body[0], '_id', 'Book should contain _id');
-            console.log(res.body);
+            expect(res.body).to.satisfy(function (book) {
+                if ((typeof book === 'object') || (book === "That book is already in our database!")) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
             done();
         });
       });
@@ -42,7 +50,7 @@ chai.use(chaiHttp);
           .type('form')
           .send({
             '_method': 'post',
-            'title': 'My Greatest Work'            
+            'title': ''            
           })
           .end(function(err, res){
             assert.equal(res.status, 200);
