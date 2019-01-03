@@ -65,7 +65,7 @@ $( document ).ready(function() {
       dataType: 'json',
       data: $('#newBookForm').serialize(),
       success: function(data) {
-        //update list
+        location.reload();
       }
     });
   });
@@ -77,7 +77,7 @@ $( document ).ready(function() {
       dataType: 'json',
       data: $('#newBookForm').serialize(),
       success: function(data) {
-        //update list
+        alert(data); location.reload();
       }
     });
   });
