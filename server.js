@@ -1,17 +1,17 @@
 'use strict';
 
-var express     = require('express');
-var bodyParser  = require('body-parser');
-var cors        = require('cors');
+const express     = require('express');
+const bodyParser  = require('body-parser');
+const cors        = require('cors');
 
-var apiRoutes         = require('./routes/api.js');
-var fccTestingRoutes  = require('./routes/fcctesting.js');
-var runner            = require('./test-runner');
+const apiRoutes         = require('./routes/api.js');
+const fccTestingRoutes  = require('./routes/fcctesting.js');
+const runner            = require('./test-runner');
 
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 
-var app = express();
+const app = express();
 
 app.use(helmet({
   frameguard: {
