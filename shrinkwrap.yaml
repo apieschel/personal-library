@@ -1,13 +1,13 @@
 dependencies:
   body-parser: 1.18.3
   chai: 4.2.0
-  chai-http: 4.2.0
+  chai-http: 4.2.1
   cors: 2.8.5
   express: 4.16.4
   helmet: 3.15.0
   mocha: 5.2.0
   mongodb: 3.1.10
-  mongoose: 5.4.1
+  mongoose: 5.4.2
   zombie: 6.1.4
 packages:
   /@types/chai/4.1.7:
@@ -22,13 +22,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==
-  /@types/superagent/3.8.5:
+  /@types/superagent/3.8.6:
     dependencies:
       '@types/cookiejar': 2.1.0
       '@types/node': 10.12.18
     dev: false
     resolution:
-      integrity: sha512-h7dQyzEGQFY3Ya8pIu0fxcWaMWC2DDSKR78gHrh6GVnXUqXo/+93wd4RObXA13rKp4ETyym3yq2A0AxROx9AxQ==
+      integrity: sha512-YQjdsk27MLb6uyXjjywGyYeuqavwV3CirHt6btBz00HkKJyowdB8gjjB1zIZxrOybDRqO8FLjTZeEtmtC2hqxA==
   /abab/2.0.0:
     dev: false
     resolution:
@@ -201,10 +201,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
-  /chai-http/4.2.0:
+  /chai-http/4.2.1:
     dependencies:
       '@types/chai': 4.1.7
-      '@types/superagent': 3.8.5
+      '@types/superagent': 3.8.6
       cookiejar: 2.1.2
       is-ip: 2.0.0
       methods: 1.1.2
@@ -214,7 +214,7 @@ packages:
     engines:
       node: '>=4'
     resolution:
-      integrity: sha512-5j9LC1pl9jaPanux+wDm9D/V6R2xLfpixsRQhoJHxCR0E5KaiT0aL4544pVtYXN/wTUVSDTmwye5mCXkO/8b3w==
+      integrity: sha512-S2Ezy5uSVuOYleeXppfUKtTU/xbHCZyKkwjheNJ/76SGFTUPDpDkkpVdPNgC3sAO1Ap5J5LJ+/rXdLG8EGhCDA==
   /chai/4.2.0:
     dependencies:
       assertion-error: 1.1.0
@@ -867,10 +867,6 @@ packages:
       node: '>= 0.8.0'
     resolution:
       integrity: sha1-OwmSTt+fCDwEkP3UwLxEIeBHZO4=
-  /lodash.get/4.4.2:
-    dev: false
-    resolution:
-      integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
   /lodash.sortby/4.7.0:
     dev: false
     resolution:
@@ -994,12 +990,11 @@ packages:
       mongoose: '*'
     resolution:
       integrity: sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
-  /mongoose/5.4.1:
+  /mongoose/5.4.2:
     dependencies:
       async: 2.6.1
       bson: 1.1.0
       kareem: 2.3.0
-      lodash.get: 4.4.2
       mongodb: 3.1.10
       mongodb-core: 3.1.9
       mongoose-legacy-pluralize: 1.0.2
@@ -1013,7 +1008,7 @@ packages:
     engines:
       node: '>=4.0.0'
     resolution:
-      integrity: sha512-9lST8rek83apkG+gv4exI56kJ8/aJ7nZP+zAL1ezOhgfDqQM/S4U1DcsF1hL0cOTSmcip8BdT1xby9ItCFmbvA==
+      integrity: sha512-bZFYe9oikiLZ2npfSbIGNYpJ0MJVQaSQhU09VFxvu6r7nVGixbt031ewZldKbWwHsG/JPJLX2HhUa8are84ryQ==
   /mpath/0.5.1:
     dev: false
     engines:
@@ -1638,11 +1633,11 @@ shrinkwrapVersion: 3
 specifiers:
   body-parser: ^1.18.3
   chai: ^4.2.0
-  chai-http: ^4.2.0
+  chai-http: ^4.2.1
   cors: ^2.8.5
   express: ^4.16.4
   helmet: ^3.15.0
   mocha: ^5.2.0
   mongodb: ^3.1.10
-  mongoose: ^5.4.1
+  mongoose: ^5.4.2
   zombie: ^6.1.4
