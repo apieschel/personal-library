@@ -1,13 +1,8 @@
-**FreeCodeCamp**- Information Security and Quality Assurance
-------
+**Personal Library Project**
 
-Project Personal Library
-
-1) ADD YOUR MongoDB connection string to .env without quotes as db *check*
-    `example: DB=mongodb://admin:pass@1234.mlab.com:1234/fccpersonallib`
-2) SET NODE_ENV to `test` without quotes *check*
-3) You need to create all routes within *check* `routes/api.js`
-4) You will add any security features to *check* `server.js`
-5) You will create all of the functional tests in *check* `tests/2_functional-tests.js`
+1) SET NODE_ENV to `test` without quotes to run tests
+2) All routes are in `routes/api.js`
+3) All security features are in `server.js`
+4) All functional tests are in `tests/2_functional-tests.js`
 
 

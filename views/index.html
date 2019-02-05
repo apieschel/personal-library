@@ -12,20 +12,16 @@
     <header>
       <h1>Personal Library</h1>
     </header>
-    <br>
     <div id="userstories">
       <ol>
-        <li><b>POST</b> a <code>title</code> to /api/books to add a book and a json object with the <code>title</code> and a unique <code>_id</code> will be returned.</li>
-        <li>I can <b>get</b> /api/books to retrieve an aray of all books containing <code>title</code>, <code>_id</code>, & <code>commentcount</code>.</li>
-        <li>I can <b>get</b> /api/books/{_id} to retrieve a single object of a book containing <code>title</code>, <code>_id</code>, & an array of <code>comments</code> (empty array if no comments present).</li>
-        <li>I can <b>post</b> a <code>comment</code> to /api/books/{_id} to add a comment to a book and returned will be the books object similar to <b>get</b> /api/books/{_id}.</li>
-        <li>I can <b>delete</b> /api/books/{_id} to delete a book from the collection. Returned will be 'delete successful' if successful.</li>
-        <li>If I try to request a book that doesn't exist I will get a 'no book exists' message.</li>
-        <li>I can send a <b>delete</b> request to /api/books to delete all books in the database. Returned will be 'complete delete successful' if successful.</li>
-        <li>All 6 functional tests required are complete and passing.</li>
-      </ol>
-      <br>
-      
+        <li><b>POST</b> a <code>title</code> to /api/books to add a book, and a JSON object with the <code>title</code> and a unique <code>_id</code> will be returned.</li>
+        <li><b>GET</b> /api/books to retrieve an aray of all books containing <code>title</code>, <code>_id</code>, & <code>commentcount</code>.</li>
+        <li><b>GET</b> /api/books/{_id} to retrieve a single object of a book containing <code>title</code>, <code>_id</code>, & an array of <code>comments</code> (empty array if no comments present).</li>
+        <li><b>POST</b> a <code>comment</code> to /api/books/{_id} to add a comment, and the book's object will be returned (similar to <b>get</b> /api/books/{_id}).</li>
+        <li><b>DELETE</b> /api/books/{_id} to delete a book from the collection. If successful, a 'delete successful' message will be returned.</li>
+        <li>If a request contains a book that doesn't exist, then a "no book exists" message will be returned.</li>
+        <li>Send a <b>DELETE</b> request to /api/books to delete all books in the database. If successful, a 'complete delete successful' message will be returned.</li>
+      </ol>      
     </div>
     <hr>
     
