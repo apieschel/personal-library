@@ -9,8 +9,13 @@ h1 {
   text-align: center;
 }
 
-form {
+form, #bookDetail {
+  background: honeydew;
   padding: 10px;
+}
+
+#bookDetail {
+  text-align: left;
 }
 
 button, input[type="submit"] {
@@ -25,6 +30,31 @@ button, input[type="submit"] {
 
 input[type="submit"] {
   margin-top: 20px;
+}
+
+input[type="text"] {
+  width: 280px; 
+  padding: 5px;
+}
+
+button:hover, input[type="submit"]:hover {
+  background: blueviolet;
+  border: 1px solid blueviolet;
+}
+
+#detailComments {
+  list-style-position: inside;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#newCommentForm {
+  display: flex; 
+  justify-content: center;
+}
+
+.addComment {
+  margin-right: 10px;
 }
 
 .border {
