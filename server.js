@@ -1,17 +1,14 @@
 'use strict';
 
-const express     = require('express');
-const bodyParser  = require('body-parser');
-const cors        = require('cors');
-
+const express           = require('express');
+const bodyParser        = require('body-parser');
+const cors              = require('cors');
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
-
-const helmet = require('helmet');
-const mongoose = require('mongoose');
-
-const app = express();
+const helmet            = require('helmet');
+const mongoose          = require('mongoose');
+const app               = express();
 
 app.use(helmet({
   frameguard: {
@@ -32,9 +29,7 @@ app.use(helmet({
  }));
 
 app.use('/public', express.static(process.cwd() + '/public'));
-
 app.use(cors({origin: '*'})); //USED FOR FCC TESTING PURPOSES ONLY!
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -47,14 +42,13 @@ app.route('/')
 //For FCC testing purposes
 fccTestingRoutes(app);
 
-
 mongoose.connect(process.env.DB, {useNewUrlParser: true}, (err, db) => {
   if(err) {
     console.log('Database error: ' + err);
   } else { 
     console.log('Successful database connection');
   
-        //Routing for API 
+    //Routing for API 
     apiRoutes(app);  
 
     //404 Not Found Middleware
@@ -79,8 +73,7 @@ mongoose.connect(process.env.DB, {useNewUrlParser: true}, (err, db) => {
           }
         }, 1500);
       }
-    });
-    
+    });  
   }
 });
 

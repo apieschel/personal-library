@@ -50,7 +50,7 @@ chai.use(chaiHttp);
       test('GET /api/books', function(done){
        chai.request(server)
         .get('/api/books')
-        .end(function(err, res){
+        .end(function(err, res) {
           assert.equal(res.status, 200);
           assert.isArray(res.body, 'response should be an array');
           assert.property(res.body[0], 'commentcount', 'Books in array should contain commentcount');
@@ -62,7 +62,6 @@ chai.use(chaiHttp);
 
 
     suite('GET /api/books/[id] => book object with [id]', function(){
-      
       test('Test GET /api/books/[id] with id not in db',  function(done){
         chai.request(server)
           .get('/api/books/5c2d74d376642931ae637694')
@@ -81,7 +80,7 @@ chai.use(chaiHttp);
       
       test('Test GET /api/books/[id] with valid id in db',  function(done){
         chai.request(server)
-          .get('/api/books/5c2d74d376642931ae637695') // replace with the ID of the book you want to find
+          .get('/api/books/5c59f9c319d83f1c2fbfe40b') // replace with the ID of the book you want to find
           .end(function(err, res){
             assert.equal(res.status, 200);
             assert.property(res.body, 'commentcount', 'Book should contain commentcount');
@@ -94,16 +93,15 @@ chai.use(chaiHttp);
       }); 
     });
 
-    suite('POST /api/books/[id] => add comment/expect book object with id', function(){
-      
-      test('Test POST /api/books/[id] with comment', function(done){
+    suite('POST /api/books/[id] => add comment/expect book object with id', function() {  
+      test('Test POST /api/books/[id] with comment', function(done) {
         chai.request(server)
-          .post('/api/books/5c2d74d376642931ae637695') // replace with the ID of the book you want to comment on
+          .post('/api/books/5c59f9c319d83f1c2fbfe40b') // replace with the ID of the book you want to comment on
           .type('form')
           .send({
             comment: 'Loved this book too.'
           })
-          .end(function(err, res){
+          .end(function(err, res) {
             assert.equal(res.status, 200);
             assert.property(res.body, 'commentcount', 'Book should contain commentcount');
             assert.property(res.body, 'title', 'Book should contain title');
@@ -113,9 +111,6 @@ chai.use(chaiHttp);
             done();
         });
       });
-      
     });
-
   });
-
 });

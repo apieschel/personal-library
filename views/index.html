@@ -1,8 +1,7 @@
 <html>
   <head>
-    <title>FCC ISQA Project - Personal Library</title>
-    <meta name="description" content="A cool thing made with HyperDev">
-    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <title>Personal Library</title>
+    <meta name="description" content="A personal library full stack project made with Node and Express">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,13 +28,13 @@
       <div id ="sampleposting">
         <h2>Test API responses:</h2>
         <form action="/api/books" method="post" class="border">
-          <h4>Test post to /api/books</h4>
+          <h3>Test post to /api/books</h3>
           Book Title:<br>
           <input type="text" name="title" value="" required><br>
           <input type="submit" value="Submit">
         </form>
         <form action="" method="post" id="commentTest" class="border">
-          <h4>Test post to /api/books/{bookid}</h4>
+          <h3>Test post to /api/books/{bookid}</h3>
           BookId to comment on:<br>
           <input type="text" name="id" value="" id="idinputtest" required><br>
           Comment:<br>
@@ -43,6 +42,7 @@
           <input type="submit" value="Submit">
         </form>
       </div>
+      
       <div id="sampleui">
         <h2>Sample Front-End:</h2>
         <form id="newBookForm" class="border">
@@ -58,10 +58,7 @@
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
     <script src="/public/client.js"></script>           
-    
   </body>
 </html>
