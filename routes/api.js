@@ -1,14 +1,5 @@
-/*
-*
-*
-*       Complete the API routing below
-*       
-*       
-*/
-
 'use strict';
 
-const expect = require('chai').expect;
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 const Book = require("../models.js").bookModel;
@@ -98,5 +89,4 @@ module.exports = function (app) {
           });
           res.json("Your library was successfully deleted.");
 		  });
-  
 };

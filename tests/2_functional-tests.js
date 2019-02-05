@@ -7,10 +7,7 @@ const server = require('../server');
 chai.use(chaiHttp);
 
   suite('Routing tests', function() {
-
-
     suite('POST /api/books with title => create book object/expect book object', function() {
-      
       test('Test POST /api/books with title', function(done) {
         chai.request(server)
           .post('/api/books')
@@ -22,11 +19,11 @@ chai.use(chaiHttp);
           .end(function(err, res){
             assert.equal(res.status, 200);
             expect(res.body).to.satisfy(function (book) {
-                if ((typeof book === 'object') || (book === "That book is already in our database!")) {
-                    return true;
-                } else {
-                    return false;
-                }
+              if ((typeof book === 'object') || (book === "That book is already in our database!")) {
+                  return true;
+              } else {
+                  return false;
+              }
             });
             done();
         });
