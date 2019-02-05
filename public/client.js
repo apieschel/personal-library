@@ -27,8 +27,8 @@ $( document ).ready(function() {
         comments.push('<li>' +val+ '</li>');
       });
       comments.push('<br><form id="newCommentForm"><input type="text" class="form-control" id="commentToAdd" name="comment" placeholder="New Comment"></form>');
-      comments.push('<br><button class="btn btn-info addComment" id="'+ data._id+'">Add Comment</button>');
-      comments.push('<button class="btn btn-danger deleteBook" id="'+ data._id+'">Delete Book</button>');
+      comments.push('<br><div class="flexcenter"><button class="btn btn-info addComment" id="'+ data._id+'">Add Comment</button>');
+      comments.push('<button class="btn btn-danger deleteBook" id="'+ data._id+'">Delete Book</button></div>');
       $('#detailComments').html(comments.join(''));
     });
   });
