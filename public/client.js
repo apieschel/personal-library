@@ -20,7 +20,7 @@ $( document ).ready(function() {
   
   var comments = [];
   $('#display').on('click','li.bookItem',function() {
-    $("#detailTitle").html('<b>'+itemsRaw[this.id].title+'</b> (id: '+itemsRaw[this.id]._id+')');
+    $("#detailTitle").html('<b>'+itemsRaw[this.id].title+'</b><br> (id: '+itemsRaw[this.id]._id+')');
     $.getJSON('/api/books/'+itemsRaw[this.id]._id, function(data) {
       comments = [];
       $.each(data.comments, function(i, val) {

@@ -1,5 +1,5 @@
 body {
-  background: snow;
+  background: linen;
   font-family: Roboto;
   font-size: 18px;
   padding: 1% 5%;
@@ -14,13 +14,13 @@ form, #bookDetail {
   padding: 20px;
 }
 
-#bookDetail {
+#bookDetail, .listWrapper {
   text-align: left;
 }
 
 button, input[type="submit"] {
-  background: violet;
-  border: 1px solid violet;
+  background: blueviolet;
+  border: 1px solid blueviolet;
   border-radius: 2px;
   color: white;
   font-size: 18px;
@@ -38,13 +38,28 @@ input[type="text"] {
 }
 
 button:hover, input[type="submit"]:hover {
-  background: blueviolet;
-  border: 1px solid blueviolet;
+  background: black;
+  border: 1px solid black;
+}
+
+ul li {
+  cursor: pointer;
+}
+
+#deleteAllBooks {
+  background: red;
+  border: 1px solid red;
+  margin-top: 20px;
+}
+
+#deleteAllBooks:hover {
+  background: red;
+  border: 1px solid red;
 }
 
 #detailTitle {
-
-  }
+  text-align: center;
+}
 
 #detailComments {
   list-style-position: inside;
